@@ -22,6 +22,7 @@ public class Result<T> {
      */
     private T data;
 
+
     /**
      * 成功，创建ResResult：没data数据
      */
