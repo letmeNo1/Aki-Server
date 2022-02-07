@@ -1,4 +1,4 @@
-package aki.server.requestBody;
+package aki.server.requestBody.windows;
 
 public class LaunchAppInfo {
 
