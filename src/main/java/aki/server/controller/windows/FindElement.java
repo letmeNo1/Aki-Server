@@ -19,10 +19,16 @@ public class FindElement {
         return Long.parseLong(app.getPointer().toString().replace("native@0x", ""), 16);
     }
 
+    private UIElementRef getUIElementRef(Long peer){
+        return new UIElementRef(new Pointer(peer));
+    }
+
+
     @ResponseBody
     @PostMapping("windows/findElement")
     public Result findElement(@RequestBody FindElementOption findElementOption) {
-        UIElementRef app = new UIElementRef(new Pointer(findElementOption.getPeer()));
+        UIElementRef app;
+        app = new UIElementRef(new Pointer(findElementOption.getPeer()));
         UIElementRef element;
         long peer = 0;
         switch (findElementOption.getMethod()) {
@@ -30,7 +36,9 @@ public class FindElement {
                 try {
                     element = app.findElementByAutomationId(findElementOption.getParameter(), findElementOption.getIndex());
                     peer = getPeer(element);
-                } catch (RuntimeException e) {
+                    app.getPointer();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     return Result.fail(500, e.getMessage());
                 }
                 break;

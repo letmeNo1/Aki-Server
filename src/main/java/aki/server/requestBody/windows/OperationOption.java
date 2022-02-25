@@ -1,6 +1,6 @@
 package aki.server.requestBody.windows;
 
-public class MouseOperationOption {
+public class OperationOption {
     private Long peer;
     private String method;
     private int duration;

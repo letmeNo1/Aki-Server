@@ -5,7 +5,7 @@ public enum ResultCode {
     /* 成功状态码 */
     SUCCESS(200, "success"),
     /* 参数错误 */
-    PARAM_IS_INVALID(1001, "参数无效");
+    PARAM_IS_INVALID(500, "参数无效");
 
     private Integer code;
     private String message;
